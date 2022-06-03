@@ -1,0 +1,85 @@
+#include <iostream>
+using namespace std;
+
+struct data{
+  int nim[20];
+  char nama[20];
+};
+class mahasiswa{
+  public:
+    void input();
+    void proses();
+    void output();
+  private:
+    int jumlah;
+    int pil;
+    int temp;
+    int cari;
+    int ketemu;
+};
+void mahasiswa::input(){
+  cout<<"Masukkan jumlah data : ";
+  cin>>jumlah;
+
+  for(int i=0;i<jumlah;i++){
+    cout<<"Data ke-"<<i+1<<endl;
+    cout<<"NIM  : ";
+    cin>>nim[i];
+    cout<<"Nama Mahasiswa : ";
+    cin>>nama[i];
+  }
+  cout<<endl;
+}
+void mahasiswa::proses(){
+  cout<<"Pilihan sorting"<<endl;
+  cout<<"1.Ascending"<<endl;
+  cout<<"2.Descending"<<endl;
+
+  cout<<"Masukkan pilihan : ";
+  cin>>pil;
+  if(pil==1){
+    for(int i=0;i<jumlah;i++){
+      for(int j=0;j<jumlah;j++){
+        if(nim[j]<nim[i]){
+          temp=nim[i];
+          nim[i]=nim[j];
+          nim[j]=temp;
+        }
+      }
+    }
+    cout<<"DATA MAHASISWA"<<endl;
+    for(int i=0;i<jumlah;i++){
+    cout<<"NIM :  "<<nim[i];
+    cout<<"Nama : "<<nama[i];
+    }
+  }
+void mahasiswa::output(){
+  bool found;
+	//carinim -> untuk cari nim
+    cout <<"Cari NIM : ";cin>>cari;
+    found = false;
+    i=0;
+    while ((i<n)&(!found))
+        {
+            if (mahasiswa[i].nim == cari)
+                found = true;
+                else
+                    i = i+1;
+        }
+	//kondisi nim ketemu
+    if (found)
+        {
+            cout << "Hasi pencarian NIM [ " << cari; cout << " ]"<<endl;
+            cout << "NIM     : " <<nim[i].nim<<endl;
+            cout << "Nama    : " <<nama[i].nama<<endl;
+            cout << "-----------------------------------------------" <<endl;
+            cout <<endl;
+        }
+    else
+        {
+        cout <<"NIM [ ";
+        cout << cari; cout << " ] Tidak Terdaftar!! ";
+        }
+        getch();
+}
+}
